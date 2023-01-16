@@ -11,6 +11,6 @@
     "twind/": "https://esm.sh/twind@0.16.17/",
     "@/": "./",
     "./": "./",
-    "$gfm": "https://deno.land/x/gfm@0.1.26/mod.ts"
+    "$gfm": "https://deno.land/x/gfm@0.1.28/mod.ts"
   }
 }

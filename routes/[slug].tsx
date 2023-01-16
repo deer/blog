@@ -13,10 +13,12 @@ export const handler: Handlers<Post> = {
 
 export default function PostPage(props: PageProps<Post>) {
   const post = props.data;
+  const html = render(post.content);
   return (
     <>
       <Head>
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
+        <link rel="stylesheet" href="/gfm.css" />
       </Head>
       <main class="max-w-screen-md px-4 pt-16 mx-auto">
         <h1 class="text-5xl font-bold">{post.title}</h1>
@@ -29,7 +31,7 @@ export default function PostPage(props: PageProps<Post>) {
         </time>
         <div
           class="mt-8 markdown-body"
-          dangerouslySetInnerHTML={{ __html: render(post.content) }}
+          dangerouslySetInnerHTML={{ __html: html }}
         />
       </main>
     </>
