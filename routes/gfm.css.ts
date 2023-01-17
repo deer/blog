@@ -1,5 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
-import { CSS } from "$gfm";;
+import { CSS } from "$gfm";
 
 const css_result = `${CSS}
 ol.nested {
