@@ -2,7 +2,6 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { getPost, Post } from "@/utils/posts.ts";
 import { CSS, render } from "$gfm";
 import { Head } from "$fresh/runtime.ts";
-import Header from "../../components/Header.tsx";
 
 export const handler: Handlers<Post> = {
   async GET(_req, ctx) {
@@ -21,21 +20,20 @@ export default function PostPage(props: PageProps<Post>) {
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
         <link rel="stylesheet" href="/gfm.css" />
       </Head>
-      <main class="max-w-screen-md px-4 pt-16 mx-auto">
-        <Header />
-        <h2 class="text-3xl font-bold">{post.title}</h2>
-        <time class="text-gray-500">
-          {new Date(post.date).toLocaleDateString("en-us", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </time>
-        <div
-          class="mt-8 markdown-body"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-      </main>
+      <br />
+      <br />
+      <h2 class="text-3xl font-bold">{post.title}</h2>
+      <time class="text-gray-500">
+        {new Date(post.date).toLocaleDateString("en-us", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </time>
+      <div
+        class="mt-8 markdown-body"
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </>
   );
 }

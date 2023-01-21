@@ -4,13 +4,13 @@ import { join } from "$std/path/posix.ts";
 const DIRECTORY = "./posts";
 
 export interface Post {
-    slug: string;
-    title: string;
-    date: Date;
-    content: string;
-    description: string;
-    draft: string;
-  }
+  slug: string;
+  title: string;
+  date: Date;
+  content: string;
+  description: string;
+  draft: string;
+}
 
 // Get posts.
 export async function getPosts(): Promise<Post[]> {
