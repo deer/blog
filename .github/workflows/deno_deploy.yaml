@@ -19,4 +19,4 @@ jobs:
         with:
           project: rvr-blog # the name of the project on Deno Deploy
           entrypoint: main.ts # the entrypoint to deploy
-          import-map: import-map.json
+          import-map: import_map.json
