@@ -14,16 +14,18 @@ export default function NavigationBar(
       <ul class="flex justify-center items-center gap-4 mx-4 my-6 flex-wrap">
         {items.map((item) => (
           <li>
-            <a
+            {/*the active stuff isn't working right now, due to https://github.com/denoland/fresh/issues/663*/}
+            {/* <a
               href={item.href}
               class={`p-2 ${
-                isHome ? "text-black-900" : "text-black-600"
+                isHome ? "text-black-900" : "text-gray-600"
               } hover:underline ${
                 props.active == item.href ? "font-bold" : ""
               }`}
             >
               {item.name}
-            </a>
+            </a> */}
+            <a href={item.href} class={`p-2`}>{item.name}</a>
           </li>
         ))}
       </ul>
