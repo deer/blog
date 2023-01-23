@@ -1,0 +1,16 @@
+files:
+  - 1:
+    url: http://localhost:8000/
+    name: index
+  - 2:
+    url: http://localhost:8000/blog/2023-01-16
+    name: post
+  - 3:
+    url: http://localhost:8000/about
+    name: about
+  - 4:
+    url: http://localhost:8000/contact
+    name: contact
+  - 5:
+    url: http://localhost:8000/projects
+    name: projects
