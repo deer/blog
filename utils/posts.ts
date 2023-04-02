@@ -9,7 +9,7 @@ export interface Post {
   date: Date;
   content: string;
   description: string;
-  draft: string;
+  draft: boolean;
 }
 
 // Get posts.
@@ -20,8 +20,9 @@ export async function getPosts(): Promise<Post[]> {
     const slug = file.name.replace(".md", "");
     promises.push(getPost(slug));
   }
-  const posts = await Promise.all(promises) as Post[];
+  let posts = await Promise.all(promises) as Post[];
   posts.sort((a, b) => b.date.getTime() - a.date.getTime());
+  posts = posts.filter((post) => !post.draft);
   return posts;
 }
 
