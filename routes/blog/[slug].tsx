@@ -2,6 +2,7 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { getPost, Post } from "@/utils/posts.ts";
 import { CSS, render } from "$gfm";
 import { Head } from "$fresh/runtime.ts";
+import Disqus from "../../islands/Disqus.tsx";
 
 export const handler: Handlers<Post> = {
   async GET(_req, ctx) {
@@ -34,6 +35,7 @@ export default function PostPage(props: PageProps<Post>) {
         class="mt-8 markdown-body"
         dangerouslySetInnerHTML={{ __html: html }}
       />
+      <Disqus title={post.title} identifier={post.slug} />
     </>
   );
 }

@@ -11,6 +11,7 @@ import * as $4 from "./routes/contact.tsx";
 import * as $5 from "./routes/gfm.css.ts";
 import * as $6 from "./routes/index.tsx";
 import * as $7 from "./routes/projects.tsx";
+import * as $$0 from "./islands/Disqus.tsx";
 
 const manifest = {
   routes: {
@@ -23,7 +24,9 @@ const manifest = {
     "./routes/index.tsx": $6,
     "./routes/projects.tsx": $7,
   },
-  islands: {},
+  islands: {
+    "./islands/Disqus.tsx": $$0,
+  },
   baseUrl: import.meta.url,
   config,
 };
