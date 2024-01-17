@@ -1,5 +1,5 @@
 import { type Config } from "tailwindcss";
-import { safelist } from "https://deno.land/x/fresh_blog@0.0.5/mod.ts";
+import { safelist } from "fresh_blog/mod.ts";
 
 export default {
   content: [
