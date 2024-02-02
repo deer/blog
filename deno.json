@@ -20,7 +20,7 @@
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "@/": "./",
     "$std/": "https://deno.land/std@0.211.0/",
-    "fresh_blog/": "https://raw.githubusercontent.com/deer/fresh_blog/34bb68ce53dad27d2faf982ef1762c86ad59bc12/",
+    "fresh_blog/": "https://raw.githubusercontent.com/deer/fresh_blog/b1dcf16c2267dfa08001a4926e9d9bb99a48c07f/",
     "fresh_ga4/": "https://deno.land/x/fresh_ga4@0.0.4/"
   },
   "lint": { "rules": { "tags": ["fresh", "recommended"] } },

@@ -6,11 +6,11 @@ import { BlogOptions, blogPlugin } from "fresh_blog/mod.ts";
 import { ga4Plugin } from "fresh_ga4/mod.ts";
 
 const blogOptions: BlogOptions = {
-  title: "Reed's Blog",
+  title: "RvR",
   rootPath: import.meta.url,
   navbarItems: {
-    Archive: "/archive",
     About: "/about",
+    Archive: "/archive",
     Contact: "/contact",
     Projects: "/projects",
   },
