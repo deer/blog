@@ -9,9 +9,9 @@
   },
   "compilerOptions": { "jsx": "react-jsx", "jsxImportSource": "preact" },
   "imports": {
-    "$fresh/": "https://raw.githubusercontent.com/denoland/fresh/844370cadd1ed28fd76f796c2afc1e2411bfc425/",
-    "preact": "https://esm.sh/preact@10.19.3",
-    "preact/": "https://esm.sh/preact@10.19.3/",
+    "$fresh/": "https://raw.githubusercontent.com/denoland/fresh/60220dd33b5b0f6b5c72927c933dbc32a3c4734e/",
+    "preact": "https://esm.sh/preact@10.19.6",
+    "preact/": "https://esm.sh/preact@10.19.6/",
     "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.3.1",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
@@ -19,7 +19,7 @@
     "tailwindcss/": "npm:/tailwindcss@3.4.1/",
     "tailwindcss/plugin": "npm:/tailwindcss@3.4.1/plugin.js",
     "@/": "./",
-    "$std/": "https://deno.land/std@0.211.0/",
+    "$std/": "https://deno.land/std@0.218.2/",
     "fresh_blog/": "https://raw.githubusercontent.com/deer/fresh_blog/b1dcf16c2267dfa08001a4926e9d9bb99a48c07f/",
     "fresh_ga4/": "https://deno.land/x/fresh_ga4@0.0.4/"
   },
