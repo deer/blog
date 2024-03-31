@@ -5,7 +5,7 @@
 import * as $about from "./routes/about.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $projects from "./routes/projects.tsx";
-import * as $Disqus from "./islands/Disqus.tsx";
+
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -14,9 +14,7 @@ const manifest = {
     "./routes/contact.tsx": $contact,
     "./routes/projects.tsx": $projects,
   },
-  islands: {
-    "./islands/Disqus.tsx": $Disqus,
-  },
+  islands: {},
   baseUrl: import.meta.url,
 } satisfies Manifest;
 
