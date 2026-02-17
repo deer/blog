@@ -1,7 +1,14 @@
-export default function ContactPage() {
+import { define } from "../utils.ts";
+import { Nav } from "../components/Nav.tsx";
+
+export default define.page(function ContactPage(ctx) {
+  ctx.state.title = "Contact — RvR";
+
   return (
-    <div>
+    <>
+      <Nav />
+      <h1 class="text-4xl font-bold mb-8">Contact</h1>
       <div>Contact Me!</div>
-    </div>
+    </>
   );
-}
+});
