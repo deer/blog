@@ -1,10 +1,10 @@
 {
-  "lock": false,
   "nodeModulesDir": "auto",
   "tasks": {
+    "ok": "deno fmt --check && deno lint && deno check",
     "dev": "vite",
     "build": "vite build",
-    "start": "deno serve -A _fresh/server.js",
+    "start": "deno serve --allow-net --allow-read --allow-env _fresh/server.js",
     "newpost": "deno run --allow-read --allow-write utils/newpost.ts"
   },
   "compilerOptions": {
@@ -138,6 +138,11 @@
     "@kitsonk/ga4": "jsr:@kitsonk/ga4@^0.1",
     "@/": "./"
   },
-  "lint": { "rules": { "tags": ["fresh", "recommended"] } },
-  "exclude": ["**/_fresh/*"]
+  "lint": {
+    "rules": {
+      "tags": ["fresh", "recommended"],
+      "exclude": ["react-no-danger"]
+    }
+  },
+  "exclude": ["**/_fresh/*", "temp/"]
 }

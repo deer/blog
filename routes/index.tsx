@@ -15,14 +15,16 @@ export default define.page(async function IndexPage(ctx) {
         {posts.map((post) => (
           <article key={post.slug} class="group py-8 first:pt-0">
             <a href={`/blog/${post.slug}`} class="block">
-              <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide">
-                {new Date(post.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                  timeZone: "UTC",
-                })}
-              </time>
+              {post.date && (
+                <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide">
+                  {new Date(post.date).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                    timeZone: "UTC",
+                  })}
+                </time>
+              )}
               <h2 class="text-2xl font-bold mt-1 mb-2 group-hover:underline">
                 {post.title}
               </h2>

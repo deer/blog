@@ -45,7 +45,8 @@ function extractExcerpt(html: string): string {
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  if (blogCache) return blogCache;
+  const isDeploy = !!Deno.env.get("DENO_DEPLOYMENT_ID");
+  if (blogCache && isDeploy) return blogCache;
 
   const dir = new URL("../posts", import.meta.url).pathname;
   const files = await readDir(dir);
@@ -77,9 +78,14 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     });
   }
 
-  blogCache = posts.sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-  );
+  blogCache = posts.sort((a, b) => {
+    const ta = new Date(a.date).getTime();
+    const tb = new Date(b.date).getTime();
+    if (isNaN(ta) && isNaN(tb)) return 0;
+    if (isNaN(ta)) return 1;
+    if (isNaN(tb)) return -1;
+    return tb - ta;
+  });
   return blogCache;
 }
 

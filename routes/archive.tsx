@@ -15,14 +15,16 @@ export default define.page(async function ArchivePage(ctx) {
       <ul class="space-y-2">
         {posts.map((post) => (
           <li key={post.slug} class="flex gap-4 items-baseline">
-            <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground whitespace-nowrap">
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-                timeZone: "UTC",
-              })}
-            </time>
+            {post.date && (
+              <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground whitespace-nowrap">
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                  timeZone: "UTC",
+                })}
+              </time>
+            )}
             <a
               href={`/blog/${post.slug}`}
               class="hover:underline"

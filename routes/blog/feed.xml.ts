@@ -13,8 +13,8 @@ export const handler = define.handlers({
     const items = posts.map((post) => `
     <item>
       <title>${escape(post.title)}</title>
-      <link>${baseUrl}/blog/${post.slug}</link>
-      <guid>${baseUrl}/blog/${post.slug}</guid>
+      <link>${baseUrl}/blog/${escape(post.slug)}</link>
+      <guid>${baseUrl}/blog/${escape(post.slug)}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <description>${escape(post.description)}</description>
     </item>`).join("");
@@ -31,7 +31,10 @@ export const handler = define.handlers({
 </rss>`;
 
     return new Response(xml, {
-      headers: { "content-type": "application/rss+xml; charset=utf-8" },
+      headers: {
+        "content-type": "application/rss+xml; charset=utf-8",
+        "cache-control": "public, max-age=3600",
+      },
     });
   },
 });

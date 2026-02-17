@@ -5,9 +5,7 @@ import { Nav } from "../components/Nav.tsx";
 export default define.page(function ErrorPage(ctx) {
   const error = ctx.error;
   const status = error instanceof HttpError ? error.status : 500;
-  const message = status === 404
-    ? "Page not found"
-    : "Something went wrong";
+  const message = status === 404 ? "Page not found" : "Something went wrong";
 
   ctx.state.title = `${status} — RvR`;
 

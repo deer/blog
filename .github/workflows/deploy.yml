@@ -26,6 +26,9 @@ jobs:
       - name: Build step
         run: "deno task build"
 
+      - name: Verify build output
+        run: test -f _fresh/server.js || (echo "Build output _fresh/server.js not found" && exit 1)
+
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:

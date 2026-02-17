@@ -17,9 +17,9 @@ export default define.page(async function BlogPostPage(ctx) {
     description: post.description,
     datePublished: post.date,
     url: `${SITE.url}/blog/${post.slug}`,
-    author: post.author
-      ? { "@type": "Person", name: post.author }
-      : undefined,
+    ...(post.author && {
+      author: { "@type": "Person", name: post.author },
+    }),
     publisher: {
       "@type": "Organization",
       name: SITE.name,
@@ -32,14 +32,16 @@ export default define.page(async function BlogPostPage(ctx) {
       <Nav />
       <article>
         <header class="mb-10">
-          <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide">
-            {new Date(post.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-              timeZone: "UTC",
-            })}
-          </time>
+          {post.date && (
+            <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide">
+              {new Date(post.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                timeZone: "UTC",
+              })}
+            </time>
+          )}
           <h1 class="text-4xl font-bold mt-2 mb-3 leading-tight">
             {post.title}
           </h1>
