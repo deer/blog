@@ -25,6 +25,18 @@ export default define.page(async function IndexPage(ctx) {
                   })}
                 </time>
               )}
+              {post.tags.length > 0 && (
+                <div class="flex gap-2 mt-1">
+                  {post.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
               <h2 class="text-2xl font-bold mt-1 mb-2 group-hover:underline">
                 {post.title}
               </h2>

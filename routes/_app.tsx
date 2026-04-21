@@ -15,6 +15,16 @@ export default define.page(function App({ Component, url, state }) {
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <meta
+          name="theme-color"
+          content="#ffffff"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#000000"
+          media="(prefers-color-scheme: dark)"
+        />
         <link
           rel="alternate"
           type="application/rss+xml"
@@ -35,22 +45,7 @@ export default define.page(function App({ Component, url, state }) {
           </script>
         )}
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var theme = localStorage.getItem('theme');
-                if (theme === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else if (theme === 'dark' || window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              })();
-            `,
-          }}
-        />
+        <script src="/theme-init.js" />
       </head>
       <body class="bg-light-background text-light-foreground dark:bg-dark-background dark:text-dark-foreground min-h-screen">
         <div class="max-w-2xl mx-auto px-6 py-12">

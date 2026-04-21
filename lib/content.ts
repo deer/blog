@@ -93,3 +93,16 @@ export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   const posts = await getBlogPosts();
   return posts.find((p) => p.slug === slug) ?? null;
 }
+
+export async function getAdjacentPosts(
+  slug: string,
+): Promise<{ prev: BlogPost | null; next: BlogPost | null }> {
+  const posts = await getBlogPosts();
+  const idx = posts.findIndex((p) => p.slug === slug);
+  if (idx === -1) return { prev: null, next: null };
+  // posts are sorted newest-first, so "next" is older (idx+1), "prev" is newer (idx-1)
+  return {
+    prev: idx > 0 ? posts[idx - 1] : null,
+    next: idx < posts.length - 1 ? posts[idx + 1] : null,
+  };
+}
