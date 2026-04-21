@@ -44,7 +44,9 @@ what an agent sees. Every site should have this.
 ## The opinionated part
 
 Agents will be the primary consumer of documentation in the future. If your
-documentation platform is targeting humans, your product is going to lose.
+documentation platform is targeting humans, your product is going to lose. Agent
+traffic will outnumber human traffic in a developer's docs workflow before most
+teams realize it.
 
 If you write docs for anything developers touch, you're the audience for Denote.
 
@@ -57,8 +59,8 @@ choice to target the local MCP server if you want more.
 Curious how it works? It's on JSR at [@denote/core](https://jsr.io/@denote/core)
 and on GitHub at [deer/denote](https://github.com/deer/denote).
 
-Want to see it in your browser before checking anything out? Obviously
-[denote.sh](https://denote.sh/) is created using Denote. Here is your proof:
+Want to see it in your browser before checking anything out?
+[denote.sh](https://denote.sh/) is created using Denote. Proof:
 
 - https://denote.sh/llms.txt
 - https://denote.sh/api/docs
@@ -75,7 +77,7 @@ hustles on top of building. Founding isn't an option right now.
 So Denote is open source. That's the whole project. If you want a hosted
 version, self-host it -- it's MIT. [Deno Deploy](https://deno.com/deploy) makes
 it [trivial](https://docs.deno.com/deploy/reference/frameworks/#fresh-(fresh))
-to deploy a site built with Fresh.
+to deploy a site built with Fresh (what Denote is built on).
 
 ## What's next
 
