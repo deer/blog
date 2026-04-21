@@ -22,7 +22,7 @@ export default define.page(async function IndexPage(ctx) {
         "@id": `${SITE.url}/#person`,
         name: SITE.author.name,
         url: SITE.url,
-        sameAs: [SITE.author.github],
+        sameAs: [SITE.author.github, SITE.author.linkedin],
       },
     ],
   };
