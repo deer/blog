@@ -1,6 +1,6 @@
 ---
 title: Adventures in Open Source
-#description: 
+description: "A short note about contributing to denoland/fresh and a recommendation to work on open source on the side."
 date: 2023-06-25 22:01
 ---
 

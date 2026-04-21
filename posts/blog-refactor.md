@@ -1,5 +1,6 @@
 ---
 title: Refactoring the Blog
+description: "Refactoring this blog to use two Fresh plugins I wrote: fresh_blog and fresh_ga4."
 date: 2023-07-31 23:06
 ---
 

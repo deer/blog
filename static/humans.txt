@@ -1,0 +1,22 @@
+/* TEAM */
+Author: Reed von Redwitz
+Contact: reed [at] vonredwitz.com
+GitHub: @deer
+From: Germany (originally California)
+
+/* SITE */
+Last update: 2026-04
+Language: English
+Doctype: HTML5
+Standards: HTML5, CSS3, ES2024
+
+/* TECHNOLOGY */
+Runtime: Deno
+Framework: Fresh 2.x (Preact)
+Styling: Tailwind CSS 4
+Markdown: @deer/gfm
+Hosting: Deno Deploy
+Analytics: Umami (server-side, cookieless)
+
+/* THANKS */
+The people behind Fresh, Deno, Preact, and Tailwind.

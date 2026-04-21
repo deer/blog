@@ -1,9 +1,9 @@
 ---
 title: Learning About View Transitions
-description: 
+description: "Three good reads on the View Transitions API, from Smashing Magazine and web.dev."
 date: 2024-01-12 12:01
 author: Reed von Redwitz
-tags: 
+tags:
   - css
   - javascript
 ---

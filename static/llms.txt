@@ -1,0 +1,23 @@
+# reed.vonredwitz.com
+
+> Personal developer blog by Reed von Redwitz. Posts on Deno, Fresh, TypeScript, and assorted web development topics, including a "90 days of new tech" series.
+
+The site is built with Fresh 2.x, deployed on Deno Deploy, with server-side Umami analytics (no cookies, no client-side tracking).
+
+## Content
+
+- [Blog index](https://reed.vonredwitz.com/): latest posts
+- [Archive](https://reed.vonredwitz.com/archive): all posts grouped by year, with tag filtering
+- [RSS feed](https://reed.vonredwitz.com/blog/feed.xml)
+- [Sitemap](https://reed.vonredwitz.com/sitemap.xml)
+
+## About
+
+- [About](https://reed.vonredwitz.com/about)
+- [Projects](https://reed.vonredwitz.com/projects)
+- [Contact](https://reed.vonredwitz.com/contact)
+
+## Legal
+
+- [Impressum](https://reed.vonredwitz.com/impressum)
+- [Privacy Policy](https://reed.vonredwitz.com/privacy)
