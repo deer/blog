@@ -21,8 +21,8 @@ export default define.page(function Privacy(ctx) {
             in the{" "}
             <a href="/impressum" class="underline">Impressum</a>. For
             privacy-related inquiries, contact{" "}
-            <a href="mailto:reed@vonredwitz.com" class="underline">
-              reed@vonredwitz.com
+            <a href="mailto:blog@vonredwitz.com" class="underline">
+              blog@vonredwitz.com
             </a>.
           </p>
         </section>
@@ -158,8 +158,8 @@ export default define.page(function Privacy(ctx) {
           </ul>
           <p class="mt-3">
             To exercise these rights, contact{" "}
-            <a href="mailto:reed@vonredwitz.com" class="underline">
-              reed@vonredwitz.com
+            <a href="mailto:blog@vonredwitz.com" class="underline">
+              blog@vonredwitz.com
             </a>. You also have the right to lodge a complaint with a
             supervisory authority (Art. 77 GDPR).
           </p>

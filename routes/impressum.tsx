@@ -28,8 +28,8 @@ export default define.page(function Impressum(ctx) {
           </h2>
           <p>
             E-Mail:{" "}
-            <a href="mailto:reed@vonredwitz.com" class="underline">
-              reed@vonredwitz.com
+            <a href="mailto:blog@vonredwitz.com" class="underline">
+              blog@vonredwitz.com
             </a>
           </p>
         </section>

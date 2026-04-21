@@ -21,7 +21,7 @@ export const SITE = {
   locale: "en_US",
   author: {
     name: "Reed von Redwitz",
-    email: "reed@vonredwitz.com",
+    email: "blog@vonredwitz.com",
     github: "https://github.com/deer",
   },
 };
