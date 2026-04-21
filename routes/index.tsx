@@ -34,42 +34,43 @@ export default define.page(async function IndexPage(ctx) {
       <Nav pathname={ctx.url.pathname} />
       <div class="divide-y divide-light-muted-background dark:divide-dark-muted-background">
         {posts.map((post) => (
-          <article key={post.slug} class="group py-8 first:pt-0">
-            <a href={`/blog/${post.slug}`} class="block">
-              {post.date && (
-                <time
-                  datetime={new Date(post.date).toISOString()}
-                  class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide"
-                >
-                  {new Date(post.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                    timeZone: "UTC",
-                  })}
-                </time>
-              )}
-              {post.tags.length > 0 && (
-                <div class="flex gap-2 mt-1">
-                  {post.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <h2 class="text-2xl font-bold mt-1 mb-2 group-hover:underline">
+          <article key={post.slug} class="py-8 first:pt-0">
+            {post.date && (
+              <time
+                datetime={new Date(post.date).toISOString()}
+                class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide"
+              >
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  timeZone: "UTC",
+                })}
+              </time>
+            )}
+            {post.tags.length > 0 && (
+              <div class="flex gap-2 mt-1">
+                {post.tags.slice(0, 3).map((tag) => (
+                  <a
+                    key={tag}
+                    href={`/archive?tag=${encodeURIComponent(tag)}`}
+                    class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground hover:underline"
+                  >
+                    #{tag}
+                  </a>
+                ))}
+              </div>
+            )}
+            <h2 class="text-2xl font-bold mt-1 mb-2">
+              <a href={`/blog/${post.slug}`} class="hover:underline">
                 {post.title}
-              </h2>
-              {post.description && (
-                <p class="text-sm text-light-muted-foreground dark:text-dark-muted-foreground leading-relaxed line-clamp-3">
-                  {post.description}
-                </p>
-              )}
-            </a>
+              </a>
+            </h2>
+            {post.description && (
+              <p class="text-sm text-light-muted-foreground dark:text-dark-muted-foreground leading-relaxed line-clamp-3">
+                {post.description}
+              </p>
+            )}
           </article>
         ))}
       </div>
