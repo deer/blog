@@ -6,7 +6,7 @@ export default define.page(function Privacy(ctx) {
 
   return (
     <>
-      <Nav />
+      <Nav pathname={ctx.url.pathname} />
       <h1 class="text-4xl font-bold mb-8">Privacy Policy</h1>
 
       <div class="space-y-6 text-light-muted-foreground dark:text-dark-muted-foreground leading-relaxed">

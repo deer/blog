@@ -1,22 +1,46 @@
-import { define } from "../utils.ts";
+import { define, SITE } from "../utils.ts";
 import { getBlogPosts } from "../lib/content.ts";
 import { Nav } from "../components/Nav.tsx";
 
 export default define.page(async function IndexPage(ctx) {
   ctx.state.title = "RvR";
   ctx.state.description = "A developer blog by Reed";
+  ctx.state.structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE.url}/#website`,
+        url: SITE.url,
+        name: SITE.name,
+        description: SITE.defaultDescription,
+        inLanguage: "en",
+        author: { "@id": `${SITE.url}/#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE.url}/#person`,
+        name: SITE.author.name,
+        url: SITE.url,
+        sameAs: [SITE.author.github],
+      },
+    ],
+  };
 
   const posts = await getBlogPosts();
 
   return (
     <>
-      <Nav />
+      <Nav pathname={ctx.url.pathname} />
       <div class="divide-y divide-light-muted-background dark:divide-dark-muted-background">
         {posts.map((post) => (
           <article key={post.slug} class="group py-8 first:pt-0">
             <a href={`/blog/${post.slug}`} class="block">
               {post.date && (
-                <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide">
+                <time
+                  datetime={new Date(post.date).toISOString()}
+                  class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide"
+                >
                   {new Date(post.date).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",

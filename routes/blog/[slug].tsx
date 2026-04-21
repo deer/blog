@@ -1,5 +1,10 @@
 import { define, SITE } from "../../utils.ts";
-import { getAdjacentPosts, getBlogPost } from "../../lib/content.ts";
+import {
+  countWords,
+  getAdjacentPosts,
+  getBlogPost,
+  readingTimeMinutes,
+} from "../../lib/content.ts";
 import { HttpError } from "fresh";
 import { Nav } from "../../components/Nav.tsx";
 
@@ -8,45 +13,85 @@ export default define.page(async function BlogPostPage(ctx) {
   if (!post) throw new HttpError(404, "Post not found");
 
   const { prev, next } = await getAdjacentPosts(ctx.params.slug);
+  const wordCount = countWords(post.content);
+  const minutes = readingTimeMinutes(post.content);
+  const postUrl = `${SITE.url}/blog/${post.slug}`;
 
   ctx.state.title = `${post.title} — ${SITE.name}`;
   ctx.state.description = post.description;
   ctx.state.ogType = "article";
   ctx.state.structuredData = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    datePublished: post.date,
-    url: `${SITE.url}/blog/${post.slug}`,
-    ...(post.author && {
-      author: { "@type": "Person", name: post.author },
-    }),
-    publisher: {
-      "@type": "Organization",
-      name: SITE.name,
-      url: SITE.url,
-    },
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${postUrl}#article`,
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        dateModified: post.date,
+        url: postUrl,
+        wordCount,
+        keywords: post.tags.join(", "),
+        inLanguage: "en",
+        ...(post.author && {
+          author: { "@type": "Person", name: post.author },
+        }),
+        publisher: {
+          "@type": "Organization",
+          name: SITE.name,
+          url: SITE.url,
+        },
+        mainEntityOfPage: { "@id": postUrl },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE.url,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Archive",
+            item: `${SITE.url}/archive`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: postUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
     <>
-      <Nav />
+      <Nav pathname={ctx.url.pathname} />
       <a href="/" class="text-xs hover:underline mb-8 inline-block">
         ← All posts
       </a>
       <article>
         <header class="mb-10">
-          {post.date && (
-            <time class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide">
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-                timeZone: "UTC",
-              })}
-            </time>
-          )}
+          <div class="text-xs text-light-muted-foreground dark:text-dark-muted-foreground tracking-wide flex gap-2">
+            {post.date && (
+              <time datetime={new Date(post.date).toISOString()}>
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                  timeZone: "UTC",
+                })}
+              </time>
+            )}
+            {post.date && <span>·</span>}
+            <span>{minutes} min read</span>
+          </div>
           <h1 class="text-4xl font-bold mt-2 mb-3 leading-tight">
             {post.title}
           </h1>

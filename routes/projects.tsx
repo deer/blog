@@ -6,7 +6,7 @@ export default define.page(function ProjectsPage(ctx) {
 
   return (
     <>
-      <Nav />
+      <Nav pathname={ctx.url.pathname} />
       <h1 class="text-4xl font-bold mb-8">Projects</h1>
       <div>Look at all my great work!</div>
     </>

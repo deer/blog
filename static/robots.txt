@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rvr-blog.deno.dev/sitemap.xml
+Sitemap: https://reed.vonredwitz.com/sitemap.xml

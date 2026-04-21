@@ -1,4 +1,4 @@
-import { renderWithMeta } from "@deer/gfm";
+import { renderWithMeta } from "@deer/gfm/lowlight";
 
 export interface BlogPost {
   slug: string;
@@ -44,6 +44,16 @@ function extractExcerpt(html: string): string {
   return match ? match[0] : "";
 }
 
+export function countWords(html: string): number {
+  const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
+  if (!text) return 0;
+  return text.split(" ").length;
+}
+
+export function readingTimeMinutes(html: string): number {
+  return Math.max(1, Math.round(countWords(html) / 225));
+}
+
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const isDeploy = !!Deno.env.get("DENO_DEPLOYMENT_ID");
   if (blogCache && isDeploy) return blogCache;
@@ -54,9 +64,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
   for (const file of files) {
     const raw = await Deno.readTextFile(`${dir}/${file}`);
-    const { html, frontmatter } = await renderWithMeta(raw, {
-      highlighter: "lowlight",
-    });
+    const { html, frontmatter } = await renderWithMeta(raw);
     const fm = frontmatter ?? {};
     const date = String(fm.date ?? "");
     const tagsRaw = fm.tags;

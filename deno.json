@@ -127,15 +127,16 @@
     "types": ["vite/client"]
   },
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.2.0",
+    "fresh": "jsr:@fresh/core@^2.2.2",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.8",
-    "preact": "npm:preact@^10.28.3",
-    "@preact/signals": "npm:@preact/signals@^2.8.1",
-    "tailwindcss": "npm:tailwindcss@^4.1.18",
-    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.1.18",
-    "vite": "npm:vite@^7.3.1",
-    "@deer/gfm": "jsr:@deer/gfm@^0.0.4",
-    "@kitsonk/ga4": "jsr:@kitsonk/ga4@^0.1",
+    "preact": "npm:preact@^10.29.1",
+    "@preact/signals": "npm:@preact/signals@^2.9.0",
+    "tailwindcss": "npm:tailwindcss@^4.2.3",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.2.3",
+    "vite": "npm:vite@^7.3.2",
+    "@deer/gfm": "jsr:@deer/gfm@^0.0.7",
+    "@deer/gfm/style": "jsr:@deer/gfm@^0.0.7/style",
+    "@deer/gfm/lowlight": "jsr:@deer/gfm@^0.0.7/lowlight",
     "@/": "./"
   },
   "lint": {
@@ -144,5 +145,5 @@
       "exclude": ["react-no-danger"]
     }
   },
-  "exclude": ["**/_fresh/*", "temp/"]
+  "exclude": ["**/_fresh/*"]
 }

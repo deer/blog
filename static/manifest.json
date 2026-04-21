@@ -1,0 +1,15 @@
+{
+  "name": "RvR — a developer blog by Reed",
+  "short_name": "RvR",
+  "description": "A developer blog by Reed von Redwitz.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "en",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/favicon.ico", "type": "image/x-icon", "sizes": "32x32" }
+  ]
+}

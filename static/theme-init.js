@@ -1,9 +1,12 @@
 (function () {
-  var stored;
+  let stored = null;
   try {
     stored = localStorage.getItem("theme");
-  } catch (_) {}
-  var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  } catch {
+    // localStorage may be blocked (private mode, disabled storage)
+  }
+  const prefersDark =
+    globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
   if (stored === "dark" || (!stored && prefersDark)) {
     document.documentElement.classList.add("dark");
   } else {
