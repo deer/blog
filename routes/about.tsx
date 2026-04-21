@@ -28,25 +28,28 @@ export default define.page(function AboutPage(ctx) {
       <h1 class="text-4xl font-bold mb-8">About</h1>
       <div class="space-y-4 max-w-prose">
         <p>
-          I'm a developer living in Germany, originally from California. I work
-          on a set of typed Java 25 libraries under the <code>*.build</code>
+          I'm a developer living in Germany, originally from California. My
+          thesis in one sentence: AI agents should compose through typed models,
+          not generate text.
+        </p>
+        <p>
+          In practice, that means a set of typed Java 25 libraries under the
           {" "}
-          namespace. Four are open source{" "}
-          <a href="https://www.workday.com" class="underline">Workday</a>{" "}
-          projects I contribute to (base, codemodel, spawn, spin); the fifth (<a
+          <code>*.build</code>{" "}
+          namespace. Four are open source Workday projects I contribute to
+          (base, codemodel, spawn, spin); the fifth (<a
             href="https://serve.build"
             class="underline"
           >
             serve.build
-          </a>) is mine. On top of that I build domain demos:{" "}
+          </a>) is mine. On top of them I build domain demos:{" "}
           <a href="https://music.build" class="underline">music.build</a>{" "}
           is live. Separately I'm building{" "}
           <a href="https://denote.sh" class="underline">Denote</a>, an AI-native
           documentation framework.
         </p>
         <p>
-          The thesis behind all of it is one sentence: AI agents should compose
-          through typed models, not generate text. Code on{" "}
+          Code on{" "}
           <a href={SITE.author.github} class="underline">
             github.com/deer
           </a>.

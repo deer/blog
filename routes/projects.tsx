@@ -19,81 +19,49 @@ interface Section {
   projects: Project[];
 }
 
-const NUMBER_WORDS = [
-  "zero",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six",
-  "seven",
-  "eight",
-  "nine",
-  "ten",
-];
-
-function numberWord(n: number): string {
-  return NUMBER_WORDS[n] ?? String(n);
-}
-
-function capitalize(s: string): string {
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
-const WORKDAY_BUILD_PROJECTS: Project[] = [
-  {
-    name: "base.build",
-    repo: "https://github.com/Workday/base.build",
-    blurb:
-      "The foundation layer: marshalling, mereology, query, flow, and the base template. Everything downstream builds on these primitives.",
-  },
-  {
-    name: "codemodel.build",
-    repo: "https://github.com/Workday/codemodel.build",
-    blurb:
-      "A typed model of code. The codemodel-foundation captures the structure we want tools and agents to operate over instead of operating over text.",
-  },
-  {
-    name: "spawn.build",
-    repo: "https://github.com/Workday/spawn.build",
-    blurb:
-      "Generates source artifacts from a codemodel. If codemodel is the model, spawn is the rendering pass that produces files on disk.",
-  },
-  {
-    name: "spin.build",
-    repo: "https://github.com/Workday/spin.build",
-    blurb:
-      "Orchestration across the other libraries: wiring a codemodel, a spawn target, and a serve surface into a single running application.",
-  },
-];
-
-const MY_BUILD_PROJECTS: Project[] = [
-  {
-    name: "serve.build",
-    site: { href: "https://serve.build", label: "serve.build" },
-    repo: "https://github.com/deer/serve.build",
-    blurb:
-      "HTTP for Java 25. Virtual threads, structured concurrency, zero magic.",
-  },
-];
-
-const workdayCount = WORKDAY_BUILD_PROJECTS.length;
-const mineCount = MY_BUILD_PROJECTS.length;
-
 const SECTIONS: Section[] = [
   {
     heading: "The *.build ecosystem",
     intro: (
       <>
-        {capitalize(numberWord(workdayCount))} are open source{" "}
-        <a href="https://www.workday.com" class="underline">Workday</a>{" "}
-        projects I contribute to. {mineCount === 1
-          ? "The other is mine."
-          : `${capitalize(numberWord(mineCount))} are mine.`}
+        A stack. base is the foundation; codemodel depends on base, spawn on
+        those two, serve on those three, and spin on all four. Four I contribute
+        to at Workday; serve.build is mine.
       </>
     ),
-    projects: [...WORKDAY_BUILD_PROJECTS, ...MY_BUILD_PROJECTS],
+    projects: [
+      {
+        name: "base.build",
+        repo: "https://github.com/Workday/base.build",
+        blurb:
+          "Foundation utilities across 26 JPMS modules: marshalling, configuration, reactive flow, graph algorithms, query, mereology, retry, telemetry, CLI parsing, version handling. The shared primitives everything else is built on.",
+      },
+      {
+        name: "codemodel.build",
+        repo: "https://github.com/Workday/codemodel.build",
+        blurb:
+          "A language-agnostic framework for representing software systems as a structured, serializable model. A CodeModel can be populated from compiled classes or .java source, then enriched, validated, and compiled through a plugin pipeline. The basis for annotation processors and code generation.",
+      },
+      {
+        name: "spawn.build",
+        repo: "https://github.com/Workday/spawn.build",
+        blurb:
+          "Programmatically launch and control processes, JVMs, and Docker containers. One abstraction (Platform, Application, Process) across all three. Define a Specification, launch it, get CompletableFuture lifecycle hooks back.",
+      },
+      {
+        name: "spin.build",
+        repo: "https://github.com/Workday/spin.build",
+        blurb:
+          "A script-free Java 25 build system. Inspects project structure through pluggable extensions, infers what to build, and runs the resulting dependency graph of tasks. Self-hosting.",
+      },
+      {
+        name: "serve.build",
+        site: { href: "https://serve.build", label: "serve.build" },
+        repo: "https://github.com/deer/serve.build",
+        blurb:
+          "HTTP for Java 25. Virtual threads, structured concurrency, zero magic.",
+      },
+    ],
   },
   {
     heading: "Domain demos",
@@ -109,7 +77,7 @@ const SECTIONS: Section[] = [
     ],
   },
   {
-    heading: "Denote",
+    heading: "Documentation",
     projects: [
       {
         name: "Denote",
