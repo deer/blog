@@ -23,6 +23,7 @@ export const SITE = {
     name: "Reed von Redwitz",
     email: "blog@vonredwitz.com",
     github: "https://github.com/deer",
+    linkedin: "https://www.linkedin.com/in/reed-vonredwitz/",
   },
 };
 

@@ -11,7 +11,7 @@ export const handler = define.handlers({
     lines.push(`> ${SITE.defaultDescription}`);
     lines.push("");
     lines.push(
-      "Personal developer blog by Reed von Redwitz. Topics: Deno, Fresh, TypeScript, and assorted web development. Includes a '90 days of new tech' series.",
+      "Personal site and developer blog by Reed von Redwitz. Hub for three surfaces: the *.build Java 25 ecosystem (base, codemodel, spawn, spin are open source Workday projects Reed contributes to; serve.build is his own), domain demos on top (music.build), and Denote (an AI-native documentation framework at denote.sh). Thesis: AI agents should compose through typed models, not generate text. Archive includes earlier posts on Deno, Fresh, TypeScript, and a '90 days of new tech' series from 2023.",
     );
     lines.push("");
     lines.push(
