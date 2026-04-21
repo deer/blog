@@ -8,7 +8,6 @@ export interface BlogPost {
   author: string;
   tags: string[];
   content: string;
-  excerpt: string;
 }
 
 let blogCache: BlogPost[] | null = null;
@@ -33,17 +32,6 @@ async function readDir(path: string): Promise<string[]> {
   return names;
 }
 
-function extractExcerpt(html: string): string {
-  const marker = "<!--more-->";
-  const idx = html.indexOf(marker);
-  if (idx !== -1) {
-    return html.slice(0, idx);
-  }
-  // Fall back to first paragraph
-  const match = html.match(/<p>([\s\S]*?)<\/p>/);
-  return match ? match[0] : "";
-}
-
 export function countWords(html: string): number {
   const text = html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim();
   if (!text) return 0;
@@ -66,6 +54,7 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
     const raw = await Deno.readTextFile(`${dir}/${file}`);
     const { html, frontmatter } = await renderWithMeta(raw);
     const fm = frontmatter ?? {};
+    if (fm.draft === true) continue;
     const date = String(fm.date ?? "");
     const tagsRaw = fm.tags;
     const tags = Array.isArray(tagsRaw)
@@ -82,7 +71,6 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
       author: String(fm.author ?? ""),
       tags,
       content: html,
-      excerpt: extractExcerpt(html),
     });
   }
 

@@ -64,11 +64,10 @@ export default define.page(async function IndexPage(ctx) {
               <h2 class="text-2xl font-bold mt-1 mb-2 group-hover:underline">
                 {post.title}
               </h2>
-              {post.excerpt && (
-                <div
-                  class="text-sm text-light-muted-foreground dark:text-dark-muted-foreground leading-relaxed line-clamp-3"
-                  dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                />
+              {post.description && (
+                <p class="text-sm text-light-muted-foreground dark:text-dark-muted-foreground leading-relaxed line-clamp-3">
+                  {post.description}
+                </p>
               )}
             </a>
           </article>
