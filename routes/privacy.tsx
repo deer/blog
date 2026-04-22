@@ -64,10 +64,11 @@ export default define.page(function Privacy(ctx) {
               server-side Umami analytics
             </strong>{" "}
             to understand usage patterns. Analytics run entirely on the server:
-            no cookies are set in your browser, no client-side scripts are
-            loaded, and no personally identifiable information is transmitted.
-            The data sent to Umami includes the page path, hostname, browser
-            language, and referrer.
+            no cookies are set in your browser and no client-side scripts are
+            loaded. The data sent to Umami includes the page path, hostname,
+            browser language, referrer, and your IP address. The IP address is
+            used solely to derive an approximate geographic location (country,
+            region, city) and is not stored by Umami.
           </p>
           <p class="mt-2">
             <strong class="text-light-foreground dark:text-dark-foreground">
