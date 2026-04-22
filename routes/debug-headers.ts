@@ -6,6 +6,9 @@ export const handler = define.handlers({
     ctx.req.headers.forEach((value, key) => {
       headers[key] = value;
     });
-    return Response.json(headers);
+    return Response.json({
+      headers,
+      ctxInfo: ctx.info,
+    });
   },
 });
