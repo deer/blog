@@ -8,7 +8,11 @@ export const handler = define.handlers({
     });
     return Response.json({
       headers,
-      ctxInfo: ctx.info,
+      remoteAddr: {
+        transport: ctx.info.remoteAddr.transport,
+        hostname: (ctx.info.remoteAddr as Deno.NetAddr).hostname,
+        port: (ctx.info.remoteAddr as Deno.NetAddr).port,
+      },
     });
   },
 });
