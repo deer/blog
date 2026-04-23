@@ -9,6 +9,7 @@
 
 export interface MiddlewareContext {
   readonly req: Request;
+  readonly info: { remoteAddr: Deno.Addr };
   next(): Promise<Response>;
 }
 
@@ -38,13 +39,18 @@ export function umamiMiddleware() {
     const ct = res.headers.get("content-type") || "";
     if (!ct.includes("text/html")) return res;
 
-    sendEvent(ctx.req, siteId);
+    const ip = ctx.req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      ctx.req.headers.get("x-real-ip") ||
+      (ctx.info.remoteAddr as Deno.NetAddr).hostname ||
+      "";
+
+    sendEvent(ctx.req, siteId, ip);
 
     return res;
   };
 }
 
-function sendEvent(request: Request, siteId: string): void {
+function sendEvent(request: Request, siteId: string, ip: string): void {
   Promise.resolve().then(async () => {
     const pageUrl = new URL(request.url);
 
@@ -57,9 +63,6 @@ function sendEvent(request: Request, siteId: string): void {
     ) {
       return;
     }
-
-    const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      request.headers.get("x-real-ip") || "";
 
     await fetch(UMAMI_ENDPOINT, {
       method: "POST",
