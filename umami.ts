@@ -39,8 +39,7 @@ export function umamiMiddleware() {
     const ct = res.headers.get("content-type") || "";
     if (!ct.includes("text/html")) return res;
 
-    const ip =
-      ctx.req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    const ip = ctx.req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
       ctx.req.headers.get("x-real-ip") ||
       (ctx.info.remoteAddr as Deno.NetAddr).hostname ||
       "";
