@@ -135,9 +135,9 @@
     "tailwindcss": "npm:tailwindcss@4.2.4",
     "@tailwindcss/vite": "npm:@tailwindcss/vite@4.2.4",
     "vite": "npm:vite@7.3.2",
-    "@deer/gfm": "jsr:@deer/gfm@0.0.7",
-    "@deer/gfm/style": "jsr:@deer/gfm@^0.0.7/style",
-    "@deer/gfm/lowlight": "jsr:@deer/gfm@^0.0.7/lowlight",
+    "@deer/gfm": "jsr:@deer/gfm@0.0.8",
+    "@deer/gfm/style": "jsr:@deer/gfm@^0.0.8/style",
+    "@deer/gfm/lowlight": "jsr:@deer/gfm@^0.0.8/lowlight",
     "@/": "./"
   },
   "lint": {
