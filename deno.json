@@ -5,6 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "deno serve --allow-net --allow-read --allow-env _fresh/server.js",
+    "update": "deno run -A -r jsr:@fresh/update .",
     "newpost": "deno run --allow-read --allow-write utils/newpost.ts"
   },
   "compilerOptions": {
@@ -127,14 +128,14 @@
     "types": ["vite/client"]
   },
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.2.2",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@^1.0.8",
-    "preact": "npm:preact@^10.29.1",
-    "@preact/signals": "npm:@preact/signals@^2.9.0",
-    "tailwindcss": "npm:tailwindcss@^4.2.3",
-    "@tailwindcss/vite": "npm:@tailwindcss/vite@^4.2.3",
-    "vite": "npm:vite@^7.3.2",
-    "@deer/gfm": "jsr:@deer/gfm@^0.0.7",
+    "fresh": "jsr:@fresh/core@2.3.3",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.1.2",
+    "preact": "npm:preact@10.29.1",
+    "@preact/signals": "npm:@preact/signals@2.9.0",
+    "tailwindcss": "npm:tailwindcss@4.2.4",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@4.2.4",
+    "vite": "npm:vite@7.3.2",
+    "@deer/gfm": "jsr:@deer/gfm@0.0.7",
     "@deer/gfm/style": "jsr:@deer/gfm@^0.0.7/style",
     "@deer/gfm/lowlight": "jsr:@deer/gfm@^0.0.7/lowlight",
     "@/": "./"
