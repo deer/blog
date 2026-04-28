@@ -52,7 +52,9 @@ export async function getBlogPosts(): Promise<BlogPost[]> {
 
   for (const file of files) {
     const raw = await Deno.readTextFile(`${dir}/${file}`);
-    const { html, frontmatter } = await renderWithMeta(raw);
+    const { html, frontmatter } = await renderWithMeta(raw, {
+      disableHtmlSanitization: true,
+    });
     const fm = frontmatter ?? {};
     if (fm.draft === true) continue;
     const date = String(fm.date ?? "");
