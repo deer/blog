@@ -23,9 +23,10 @@ do something with music."
 
 ## What happened
 
-I ended up building https://music.build/ / https://github.com/deer/music.build.
-It's a structural composition library — pitches, rhythms, intervals, voices,
-harmony, form, all the primitives a musician would name.
+I ended up building [music.build](https://music.build/)
+([source](https://github.com/deer/music.build)). It's a structural composition
+library — pitches, rhythms, intervals, voices, harmony, form, all the primitives
+a musician would name.
 
 These primitives are too low-level for a human to compose with directly. But
 composed up via MCP, with markdown explaining the patterns, an agent can use
@@ -93,7 +94,7 @@ the track</a></audio>
 _8 bars of one-drop reggae in G minor at 85 BPM._
 
 <details>
-<summary>Full Reggae Session</summary>
+<summary>Full tool log of composition</summary>
 
 ```json
 {"ts":"2026-04-27T04:35:16.715602134Z","tool":"score.load","args":{"filename":"47_one_drop_reggae/one_drop_reggae.json"},"durationMs":108,"ok":true}
