@@ -64,15 +64,12 @@ function sendEvent(request: Request, siteId: string, ip: string): void {
       return;
     }
 
-    const headers: Record<string, string> = {
-      "Content-Type": "application/json",
-      "User-Agent": request.headers.get("user-agent") || "rvr-blog/1.0",
-    };
-    if (ip) headers["x-forwarded-for"] = ip;
-
     await fetch(UMAMI_ENDPOINT, {
       method: "POST",
-      headers,
+      headers: {
+        "Content-Type": "application/json",
+        "User-Agent": request.headers.get("user-agent") || "rvr-blog/1.0",
+      },
       body: JSON.stringify({
         type: "event",
         payload: {
@@ -82,6 +79,7 @@ function sendEvent(request: Request, siteId: string, ip: string): void {
           language: request.headers.get("accept-language")?.split(",")[0] || "",
           referrer: request.headers.get("referer") || "",
           title: "",
+          ...(ip ? { ip } : {}),
         },
       }),
     });
